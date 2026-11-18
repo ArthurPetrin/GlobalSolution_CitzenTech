@@ -15,7 +15,7 @@ jobs:
   semgrep:
     runs-on: ubuntu-latest
     container:
-      image: semgrep/semgrep
+      image: semgrep/semgrep@sha256:67518c174185a2043fdbed16c70631b79209499b3671178e7194379b48295a0d
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - run: semgrep scan --config auto --error
@@ -27,7 +27,7 @@ jobs:
       - name: Build da imagem
         run: docker build -t app:${{ github.sha }} .
       - name: Scan com Trivy
-        uses: aquasecurity/trivy-action@18f25845c43d3b9e5904d9c748c0865743a13785 # v0.29.0
+        uses: aquasecurity/trivy-action@18f2510ee396bbf400402947b394f2dd8c87dbb0 # v0.29.0
         with:
           image-ref: app:${{ github.sha }}
           severity: HIGH,CRITICAL
