@@ -1,0 +1,9 @@
+.env
+.env.*
+.vs/
+.vscode/
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
