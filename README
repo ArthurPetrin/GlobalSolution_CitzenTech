@@ -1,0 +1,36 @@
+# CitizenTech — Plataforma de Acessibilidade Urbana (Secure DevOps)
+
+MVP web containerizado com esteira CI/CD DevSecOps automatizada (GitHub Actions + Gitleaks + Semgrep + Trivy + Docker Hub) e infraestrutura como código na AWS (Terraform + EC2 + CloudWatch + SNS).
+
+---
+
+## Pré-requisitos
+
+* **Git**, **Docker**, **Terraform** (`>= 1.5`) e **AWS CLI** instalados
+* Conta no **Docker Hub** e credenciais ativas da **AWS** (Learner Lab / IAM)
+
+---
+
+## 1. Execução Local (Docker)
+
+```bash
+# Clonar o repositório
+git clone [https://github.com/ArthurPetrin/GlobalSolution_CitzenTech.git](https://github.com/ArthurPetrin/GlobalSolution_CitzenTech.git)
+cd GlobalSolution_CitzenTech
+
+# Construir e iniciar o container (Nginx unprivileged na porta 8080)
+docker build -t citizentech-local .
+docker run -d --name citizentech-web -p 80:8080 citizentech-local
+
+
+## 2. Execução dos códigos (terminal)
+
+aws configure
+[AccessKey]
+[SecretKey]
+[Region]
+[none]
+
+cd terraform
+terraform init
+terraform apply
